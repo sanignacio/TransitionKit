@@ -25,7 +25,7 @@
 /**
  The `TKState` class defines a particular state with a state machine. Each state must have a unique name within the state machine in which it is used.
  */
-@interface TKState : NSObject <NSCoding, NSCopying>
+@interface TKState : NSObject <NSSecureCoding, NSCopying>
 
 ///-----------------------
 /// @name Creating a State

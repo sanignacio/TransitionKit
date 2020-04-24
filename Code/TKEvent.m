@@ -64,6 +64,10 @@ static NSString *TKDescribeSourceStates(NSArray *states)
 
 #pragma mark - NSCoding
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [self init];
@@ -71,9 +75,9 @@ static NSString *TKDescribeSourceStates(NSArray *states)
         return nil;
     }
     
-    self.name = [aDecoder decodeObjectForKey:@"name"];
-    self.sourceStates = [aDecoder decodeObjectForKey:@"sourceStates"];
-    self.destinationState = [aDecoder decodeObjectForKey:@"destinationState"];
+    self.name = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"name"];
+    self.sourceStates = [aDecoder decodeObjectOfClass:[NSArray class] forKey:@"sourceStates"];
+    self.destinationState = [aDecoder decodeObjectOfClass:[TKState class] forKey:@"destinationState"];
     return self;
 }
 

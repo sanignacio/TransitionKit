@@ -65,6 +65,10 @@
 
 #pragma mark - NSCoding
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [self init];
@@ -72,7 +76,7 @@
         return nil;
     }
     
-    self.name = [aDecoder decodeObjectForKey:@"name"];
+    self.name = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"name"];
     return self;
 }
 

@@ -25,7 +25,7 @@
 /**
  The `TKEvent` class describes an event within a state machine that causes a transition between states. Each event has a descriptive name and specifies the state that the machine will transition into after the event has been fired. Events can optionally be constrained to a set of source states that the machine must be in for the event to fire.
  */
-@interface TKEvent : NSObject <NSCoding, NSCopying>
+@interface TKEvent : NSObject <NSSecureCoding, NSCopying>
 
 ///------------------------
 /// @name Creating an Event

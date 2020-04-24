@@ -259,6 +259,10 @@ static NSString *TKQuoteString(NSString *string)
 
 #pragma mark - NSCoding
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [self init];
@@ -266,10 +270,10 @@ static NSString *TKQuoteString(NSString *string)
         return nil;
     }
     
-    self.initialState = [aDecoder decodeObjectForKey:@"initialState"];
-    self.currentState =[aDecoder decodeObjectForKey:@"currentState"];
-    self.mutableStates = [[aDecoder decodeObjectForKey:@"states"] mutableCopy];
-    self.mutableEvents = [[aDecoder decodeObjectForKey:@"events"] mutableCopy];
+    self.initialState = [aDecoder decodeObjectOfClass:[TKState class] forKey:@"initialState"];
+    self.currentState =[aDecoder decodeObjectOfClass:[TKState class] forKey:@"currentState"];
+    self.mutableStates = [[aDecoder decodeObjectOfClass:[NSMutableSet class] forKey:@"states"] mutableCopy];
+    self.mutableEvents = [[aDecoder decodeObjectOfClass:[NSMutableSet class] forKey:@"events"] mutableCopy];
     self.active = [aDecoder decodeBoolForKey:@"isActive"];
     return self;
 }
