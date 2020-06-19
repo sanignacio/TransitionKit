@@ -62,7 +62,7 @@ static NSString *TKDescribeSourceStates(NSArray *states)
     return [NSString stringWithFormat:@"<%@:%p '%@' transitions from %@ to '%@'>", NSStringFromClass([self class]), self, self.name, TKDescribeSourceStates(self.sourceStates), self.destinationState.name];
 }
 
-#pragma mark - NSCoding
+#pragma mark - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;

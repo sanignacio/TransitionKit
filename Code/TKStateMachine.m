@@ -257,7 +257,7 @@ static NSString *TKQuoteString(NSString *string)
     return YES;
 }
 
-#pragma mark - NSCoding
+#pragma mark - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;

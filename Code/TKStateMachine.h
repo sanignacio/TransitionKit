@@ -47,7 +47,7 @@
  
  ## Copying and Serialization Support
  
- The `TKStateMachine` class is both `NSCoding` and `NSCopying` compliant. When copied, a new inactive state machine instance is created with the same states, events, and initial state. All blocks associated with the events and states are copied. When archived, the current state, initial state, states, events and activation state is preserved. All block callbacks associated with the states and events become `nil`.
+ The `TKStateMachine` class is both `NSSecureCoding` and `NSSecureCoding` compliant. When copied, a new inactive state machine instance is created with the same states, events, and initial state. All blocks associated with the events and states are copied. When archived, the current state, initial state, states, events and activation state is preserved. All block callbacks associated with the states and events become `nil`.
  */
 @interface TKStateMachine : NSObject <NSSecureCoding, NSCopying>
 
